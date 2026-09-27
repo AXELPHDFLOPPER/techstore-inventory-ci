@@ -43,7 +43,7 @@ stage("Docker Build") {
 stage('Smoke Test') {
     steps {
         sh 'sleep 4'
-        sh 'curl -fsS http://localhost:5001/health'
+        sh 'curl -fsS http://techstore-inventory-ci:5000/health'
     }
 }
 }
