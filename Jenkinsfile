@@ -40,11 +40,11 @@ stage("Docker Build") {
                 sh 'docker run -d --name ' + env.CONTAINER_NAME + ' --network techstore-ci-net -p 5001:5000 -e DB_PASSWORD="' + DB_PASSWORD + '" ' + env.IMAGE_NAME + ':' + env.BUILD_NUMBER
             }
         }
-stage("Smoke Test") {
-steps {
-sh "sleep 2"
-sh "curl -fsS http://${CONTAINER_NAME}:5000/health"
-}
+stage('Smoke Test') {
+    steps {
+        sh 'sleep 4' // Aumenta de 2 a 4 o 5 segundos
+        sh 'curl -fsS http://techstore-inventory-ci:5000/health'
+    }
 }
 }
 post {
