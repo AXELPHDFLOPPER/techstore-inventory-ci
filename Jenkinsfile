@@ -42,8 +42,8 @@ stage("Docker Build") {
         }
 stage('Smoke Test') {
     steps {
-        sh 'sleep 4' // Aumenta de 2 a 4 o 5 segundos
-        sh 'curl -fsS http://techstore-inventory-ci:5000/health'
+        sh 'sleep 4'
+        sh 'curl -fsS http://localhost:5001/health'
     }
 }
 }
